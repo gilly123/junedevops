@@ -24,7 +24,7 @@
    tomcatup
    ```
   #### Check point :
-access tomcat application from browser on prot 8080  
+access tomcat application from browser on port 8080  
  - http://<Public_IP>:8080
 
   Using unique ports for each application is a best practice in an environment. But tomcat and Jenkins runs on ports number 8080. Hence lets change tomcat port number to 8090. Change port number in conf/server.xml file under tomcat home
@@ -36,10 +36,10 @@ tomcatdown
 tomcatup
 ```
 #### Check point :
-Access tomcat application from browser on prot 8090  
- - http://<Public_IP>:8090
+Access tomcat application from browser on port 8080  
+ - http://<Public_IP>:8080
 
-1. now application is accessible on port 8090. but tomcat application doesnt allow to login from browser. changing a default parameter in context.xml does address this issue
+1. now application is accessible on port 8080. but tomcat application doesnt allow to login from browser. changing a default parameter in context.xml does address this issue
    ```sh
    #search for context.xml
    find / -name context.xml
@@ -47,8 +47,8 @@ Access tomcat application from browser on prot 8090
 1. above command gives 3 context.xml files. comment (<!-- & -->) `Value ClassName` field on files which are under webapp directory. 
 After that restart tomcat services to effect these changes
    ```sh 
-   tomcatdown
-   tomcatup
+   ./shutdown.sh
+   ./startup.sh
    ```
 1. Update users information in the tomcat-users.xml file
 goto tomcat home directory and Add below users to conf/tomcat-user.xml file
